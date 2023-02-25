@@ -55,6 +55,9 @@ jobs:
         echo $new_version
         NEW_VERSION=$new_version
     
+    - name: test variables
+      run: echo ${{ steps.generate.output.NEW_VERSION }}
+      
     #Publish the executable file
     - name: Publish
       uses: softprops/action-gh-release@v1

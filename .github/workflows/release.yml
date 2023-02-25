@@ -54,11 +54,8 @@ jobs:
         new_version=$(echo "v$major_version.$minor_version.$patch_version")
         echo $new_version
         echo "new_version=$new_version" >> $GITHUB_OUTPUT
-    
-    - name: test variables
-      run: echo ${{ steps.generate.outputs.new_version }}
+ 
       
-    #Publish the executable file
     - name: Publish
       uses: softprops/action-gh-release@v1
       id: publish

@@ -47,6 +47,7 @@ jobs:
         patch_version=$(echo $latest_version | cut -d. -f3)
         minor_version=$(expr $minor_version + 1)
         new_version=$(echo "v$major_version.$minor_version.$patch_version")
+        echo $new_version
     
     #Publish the executable file
     - name: Publish
@@ -54,7 +55,7 @@ jobs:
       id: publish
       with:
         draft: true
-        tag_name: $new_version
+        tag_name: ${{ $new_version }}
         fail_on_unmatched_files: true
         generate_release_notes: true
         append_body: true

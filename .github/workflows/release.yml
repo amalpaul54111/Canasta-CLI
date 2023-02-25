@@ -56,7 +56,7 @@ jobs:
         NEW_VERSION=$new_version
     
     - name: test variables
-      run: echo ${{ steps.generate.outputs.NEW_VERSION }}
+      run: echo ${{ steps.generate.output.NEW_VERSION }}
       
     #Publish the executable file
     - name: Publish
@@ -64,7 +64,7 @@ jobs:
       id: publish
       with:
         draft: false
-        tag_name: ${{ steps.generate.outputs.NEW_VERSION }}
+        tag_name: ${{ steps.generate.output.NEW_VERSION }}
         fail_on_unmatched_files: true
         generate_release_notes: true
         append_body: true
